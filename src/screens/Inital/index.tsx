@@ -23,14 +23,14 @@ const Inital: React.FC = () => {
     {
       icon: <FlagBrazil size={24} />,
       text: 'Português',
-      abbr: 'pt-BR',
-      onClick: () => changeLanguage('pt-BR'),
+      abbr: 'pt_BR',
+      onClick: () => changeLanguage('pt_BR'),
     },
     {
       icon: <FlagUsa size={24} />,
       text: 'English',
-      abbr: 'en-US',
-      onClick: () => changeLanguage('en-US'),
+      abbr: 'en_US',
+      onClick: () => changeLanguage('en_US'),
     },
   ];
   return (
