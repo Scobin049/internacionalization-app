@@ -5,4 +5,4 @@ export interface LanguageListDTO {
   description: string;
 }
 
-export type LanguageType = 'pt-BR' | 'en-US';
+export type LanguageType = 'pt_BR' | 'en_US';
