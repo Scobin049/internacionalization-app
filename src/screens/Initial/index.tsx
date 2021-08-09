@@ -35,8 +35,8 @@ const Inital: React.FC = () => {
             keyExtractor={item => item.code}
             numColumns={2}
           />
+          <Subtitle>{translationList.description}</Subtitle>
         </Content>
-        <Subtitle>{translationList.description}</Subtitle>
       </Container>
     </>
   );

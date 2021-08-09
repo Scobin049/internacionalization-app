@@ -8,7 +8,7 @@ export const listOfLanguages: ListOfLanguagesDTO[] = [
   },
   {
     code: 'en',
-    name: 'English (USA)',
+    name: 'English',
     image: require('../../assets/images/en.png'),
   },
   {
