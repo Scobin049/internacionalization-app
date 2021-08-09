@@ -1,13 +1,18 @@
-import en from './en-US';
-import pt from './pt-BR';
-import {LanguageListDTO, LanguageType} from './types';
+import en from './en';
+import br from './br';
+import fr from './fr';
+import it from './it';
+
+import { LanguageListDTO, LanguageType } from './types';
 
 const Languages = (language: LanguageType): LanguageListDTO => {
   const setLanguage = {
-    pt_BR: pt,
-    en_US: en,
+    br: br,
+    en: en,
+    it: it,
+    fr: fr,
   };
-  return setLanguage[language] || setLanguage.pt_BR;
+  return setLanguage[language] || setLanguage.br;
 };
 
 export default Languages;
