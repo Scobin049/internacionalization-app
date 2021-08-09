@@ -8,7 +8,7 @@ import { useLanguage } from '../../contexts/language';
 import { Container, Content, Illustration, Title, Subtitle } from './styles';
 
 const Inital: React.FC = () => {
-  const { translationList, changeLanguage } = useLanguage();
+  const { translationList, language, changeLanguage } = useLanguage();
 
   return (
     <>
@@ -25,6 +25,7 @@ const Inital: React.FC = () => {
             renderItem={({ item }) => (
               <SelectFlag
                 item={item}
+                isSelected={language === item.code}
                 key={item.code}
                 onPress={() => {
                   changeLanguage(item.code);

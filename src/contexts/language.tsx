@@ -44,6 +44,7 @@ export const LanguageProvider: React.FC = ({ children }) => {
       value={{
         translationList,
         changeLanguage,
+        language,
       }}>
       {children}
     </LanguageContext.Provider>
