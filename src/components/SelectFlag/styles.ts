@@ -1,10 +1,14 @@
 import styled from 'styled-components/native';
 import palette from '../../assets/palette';
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled.TouchableOpacity<{ isSelected: boolean }>`
   flex: 1;
   align-items: center;
-  margin: 8px;
+  margin: 4px;
+  border: solid 2px
+    ${props => (props.isSelected ? palette.accent : 'transparent')};
+  padding: 12px;
+  border-radius: 16px;
 `;
 
 export const ContentImage = styled.Image`
