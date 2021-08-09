@@ -1,35 +1,26 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, {useContext, useEffect, useState} from 'react';
-import {Platform, NativeModules} from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
 import Languages from '../languages';
-import {LanguageListDTO, LanguageType} from '../languages/types';
-import {LanguageContextDTO} from './types';
+import { LanguageListDTO, LanguageType } from '../languages/types';
+import { LanguageContextDTO } from './types';
 
 export const LanguageContext = React.createContext<LanguageContextDTO>(
-  {} as LanguageContextDTO,
+  {} as LanguageContextDTO
 );
 
-export const LanguageProvider: React.FC = ({children}) => {
-  const [language, setLanguage] = useState<LanguageType>('en_US');
+export const LanguageProvider: React.FC = ({ children }) => {
+  const [language, setLanguage] = useState<LanguageType>('en');
   const [
     translationList,
     setTranslationList,
-  ] = useState<LanguageListDTO | null>(Languages('en_US'));
+  ] = useState<LanguageListDTO | null>(Languages('en'));
 
   useEffect(() => {
     const verifyLastLanguage = async () => {
       const lastLanguage = await AsyncStorage.getItem('last_language');
       console.log('lastLanguage', lastLanguage);
       if (!lastLanguage) {
-        const deviceLanguage =
-          Platform.OS === 'ios'
-            ? NativeModules.SettingsManager.settings.AppleLocale ||
-              NativeModules.SettingsManager.settings.AppleLanguages[0]
-            : NativeModules.I18nManager.localeIdentifier;
-
-        if (language !== deviceLanguage) {
-          setTranslationList(Languages(deviceLanguage));
-        }
+        setTranslationList(Languages('en'));
       } else {
         setLanguage(lastLanguage as LanguageType);
         setTranslationList(Languages(lastLanguage as LanguageType));
@@ -39,7 +30,6 @@ export const LanguageProvider: React.FC = ({children}) => {
   }, []);
 
   const changeLanguage = async (data: LanguageType) => {
-    console.log('changeLanguage', data);
     await AsyncStorage.setItem('last_language', data);
     setLanguage(data);
     setTranslationList(Languages(data));

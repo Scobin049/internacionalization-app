@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {LanguageProvider} from './contexts/language';
-import Inital from './screens/Inital';
+import { LanguageProvider } from './contexts/language';
+import Initial from './screens/Initial';
 
 const App = () => {
   return (
     <LanguageProvider>
-      <Inital />
+      <Initial />
     </LanguageProvider>
   );
 };
